@@ -1,5 +1,5 @@
 # AWS Elastic Beanstalk - SciPy - SciKit - Flask Setup
-Elastic Beanstalk (EB) relies on Amazon Linux AMIs (by default) to deploy our application. This AMI has trouble installing Python's scientific packages smoothly. These instructions ensure applications with SciPy and SciKit-Learn libraries startup properly on EB.
+Elastic Beanstalk (EB) relies on Amazon Linux AMIs (by default) to deploy our application. This AMI requires a few configuration tweaks to install SciPy and SciKit. These instructions ensure applications with SciPy and SciKit-Learn libraries startup properly on EB.
 
 Topics:
 * Need a small instance, not micro
