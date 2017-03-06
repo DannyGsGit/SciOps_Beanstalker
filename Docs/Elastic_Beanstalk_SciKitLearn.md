@@ -1,10 +1,6 @@
 # AWS Elastic Beanstalk - SciPy - SciKit - Flask Setup
 Elastic Beanstalk (EB) relies on Amazon Linux AMIs (by default) to deploy our application. This AMI requires a few configuration tweaks to install SciPy and SciKit. These instructions ensure applications with SciPy and SciKit-Learn libraries startup properly on EB.
 
-Topics:
-* Need a small instance, not micro
-* eb deploy --timeout to give SciPy time to compile
-
 ## Virtual Environments
 In order to keep things clean, we will want to work with virtual environments. A minimum of two environments should be used:
 1. Project Environment: A virtual environment containing python packages to run your code. Package requirements will be pulled from this environment, so make sure all dependencies are included!!!
