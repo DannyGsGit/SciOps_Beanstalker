@@ -25,6 +25,8 @@ rf_key.get_contents_to_filename('rideshare_rf_model.pkl')
 # Now unpickle the model
 rf = pickle.load(open('rideshare_rf_model.pkl', 'rb')) # <------------------------------------- Unpickle the model
 
+print("This is Flask, I'm alive!!!")
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~
 #### Define Flask API ####
 #~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -38,21 +40,20 @@ def make_predict():
     predict_request = [data['weathersit'],data['weekday'],data['atemp'], data['hum'], data['windspeed']]
     predict_request = np.array(predict_request).reshape(1,-1)
     predict_request = pd.DataFrame(predict_request, columns = ('weathersit', 'weekday', 'atemp', 'hum', 'windspeed'))
-    
+
     # Set formating
     def factorize_df(df, col_list):
         for col_name in col_list:
             df[col_name] = df[col_name].astype('category')
         return df
     predict_request = factorize_df(predict_request, ('weathersit', 'weekday')) # <--------------- Format the request for model
-        
+
     # Dataframe goes into random forest, prediction comes out
     ride_count = rf.predict(predict_request)  # <----------------------------------------------- Run the request through prediction
-    
+
     #return our prediction
     output = {'ride_count': int(ride_count[0])}
     return jsonify(results=output)   # <-------------------------------------------------------------- Send response
 
 if __name__ == '__main__':
     application.run(host='0.0.0.0', port = 9000, debug = True)
-
