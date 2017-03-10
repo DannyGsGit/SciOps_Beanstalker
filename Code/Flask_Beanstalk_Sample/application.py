@@ -25,7 +25,7 @@ rf_key.get_contents_to_filename('rideshare_rf_model.pkl')
 # Now unpickle the model
 rf = pickle.load(open('rideshare_rf_model.pkl', 'rb')) # <------------------------------------- Unpickle the model
 
-print("This is Flask, I'm alive!!!")
+print("The Flask API is now running")
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~
 #### Define Flask API ####
@@ -33,7 +33,7 @@ print("This is Flask, I'm alive!!!")
 
 application = Flask(__name__)
 
-@application.route('/rideshare', methods=['POST'])
+@application.route('/myAPI', methods=['POST'])
 def make_predict():
     #all kinds of error checking should go here
     data = request.get_json(force=True) # <------------------------------------------------- Pick up the API request in JSON
