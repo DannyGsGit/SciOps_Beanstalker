@@ -3,12 +3,6 @@
 
 from locust import HttpLocust, TaskSet
 import json
-#headers = {'content-type': 'application/json'}
-#r = l.client.post("/post/endpoint", data=json.dumps(payload), headers=headers, catch_response=True)
-
-
-
-from locust import HttpLocust, TaskSet
 
 url = "/rideshare"
 payload =json.dumps({'weathersit':1, 'weekday':3, 'atemp':0.8, 'hum':0.1, 'windspeed':0.20})
@@ -20,3 +14,6 @@ def makecall(l):
 
 class UserBehavior(TaskSet):
     tasks = {makecall: 1}
+
+
+### Start the Locust UI on port :8089 of the machine running this script.
