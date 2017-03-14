@@ -4,7 +4,7 @@
 from locust import HttpLocust, TaskSet
 import json
 
-url = "/rideshare"
+url = "/myAPI"
 payload =json.dumps({'weathersit':1, 'weekday':3, 'atemp':0.8, 'hum':0.1, 'windspeed':0.20})
 
 
